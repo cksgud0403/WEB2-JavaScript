@@ -4,37 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <title>WEB1-JavaScript</title>
+    <script>
+        function nightDayHandler(self) {
+            if (self.value == 'night') {
+                var target = document.querySelector('body');
+                target.style.backgroundColor = 'black';
+                target.style.color = 'white';
+
+                var list = document.querySelectorAll('a');
+                var i = 0;
+                while (i < list.length) {
+                    list[i].style.color = 'powderblue';
+                    i = i + 1;
+                }
+                self.value = 'day';
+            } else {
+                var target = document.querySelector('body');
+                target.style.backgroundColor = 'white';
+                target.style.color = 'black';
+
+                var list = document.querySelectorAll('a');
+                var i = 0;
+                while (i < list.length) {
+                    list[i].style.color = 'blue';
+                    i = i + 1;
+                }
+                self.value = 'night';
+            }
+        }
+    </script>
 </head>
 
 <body>
     <h1>WEB</h1>
-    <input type="button" onclick="
-    if(this.value == 'night') {
-        var target = document.querySelector('body');
-        target.style.backgroundColor = 'black';
-        target.style.color = 'white';
-
-        var list = document.querySelectorAll('a');
-        var i = 0;
-        while(i<list.length) {
-            list[i].style.color = 'powderblue';
-            i = i+1;
-        }
-        this.value = 'day';
-    }else {
-        var target = document.querySelector('body');
-        target.style.backgroundColor = 'white';
-        target.style.color = 'black';
-
-        var list = document.querySelectorAll('a');
-        var i = 0;
-        while(i<list.length) {
-            list[i].style.color = 'blue';
-            i = i+1;
-        }
-        this.value = 'night';
-    }
-    " value="night">
+    <input type="button" onclick="nightDayHandler(this);" value="night">
     <ol>
         <li><a href="#">HTML</a></li>
         <li><a href="#">CSS</a></li>
